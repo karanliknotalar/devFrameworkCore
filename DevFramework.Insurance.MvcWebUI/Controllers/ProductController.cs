@@ -35,5 +35,27 @@ namespace DevFramework.Insurance.MvcWebUI.Controllers
             });
             return "added";
         }
+
+        public string AddUpdate()
+        {
+            _productService.TransactionalOperation(new Product
+                {
+                    CategoryId = 1,
+                    ProductName = "DemoProductName",
+                    UnitPrice = 2,
+                    QuantityPerUnit = "1",
+                    UnitsInStock = 5
+                },
+                new Product
+                {
+                    ProductId = 2,
+                    CategoryId = 1,
+                    ProductName = "DemoProductName",
+                    UnitPrice = 5,
+                    QuantityPerUnit = "1",
+                    UnitsInStock = 5
+                });
+            return "updated";
+        }
     }
 }

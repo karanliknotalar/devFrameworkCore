@@ -41,6 +41,7 @@ namespace DevFramework.Core.CrossCuttingConcerns.Logging.Log4Net
             {
                 _log.Error(logMessage);
             }
+            
         }
         
         public void Fatal(object logMessage)

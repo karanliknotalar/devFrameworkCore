@@ -22,12 +22,14 @@ namespace DevFramework.Core.Aspects.PostSharp.LogAspects
 
         public override void RuntimeInitialize(MethodBase method)
         {
-            if (_loggerType.BaseType != typeof(LoggerService))
+            if (_loggerType != null)
             {
-                throw new Exception("Wrong logger type");
+                if (_loggerType.BaseType != typeof(LoggerService))
+                    throw new Exception("Wrong logger type");
+
+                _loggerService = (LoggerService)Activator.CreateInstance(_loggerType);
             }
 
-            _loggerService = (LoggerService)Activator.CreateInstance(_loggerType);
             base.RuntimeInitialize(method);
         }
 

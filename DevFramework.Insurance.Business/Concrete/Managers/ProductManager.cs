@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using DevFramework.Core.Aspects.PostSharp.CacheAspects;
+using DevFramework.Core.Aspects.PostSharp.ExceptionAspects;
 using DevFramework.Core.Aspects.PostSharp.LogAspects;
 using DevFramework.Insurance.Business.Abstract;
 using DevFramework.Insurance.Business.ValidationRules.FluentValidation;
@@ -13,6 +14,7 @@ using DevFramework.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 
 namespace DevFramework.Insurance.Business.Concrete.Managers
 {
+ 
     public class ProductManager : IProductService
     {
         private readonly IProductDal _productDal;
@@ -23,8 +25,6 @@ namespace DevFramework.Insurance.Business.Concrete.Managers
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        [LogAspect(typeof(FileLogger))]
-        [LogAspect(typeof(DatabaseLogger))]
         public List<Product> GetAll()
         {
             return _productDal.GetList();
@@ -37,8 +37,6 @@ namespace DevFramework.Insurance.Business.Concrete.Managers
 
         [FluentValidationAspect(typeof(ProductValidator))]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [LogAspect(typeof(FileLogger))]
-        [LogAspect(typeof(DatabaseLogger))]
         public Product Add(Product entity)
         {
             return _productDal.Add(entity);
@@ -51,6 +49,7 @@ namespace DevFramework.Insurance.Business.Concrete.Managers
         }
 
         [TransactionScopeAspect]
+        [FluentValidationAspect(typeof(ProductValidator))]
         public void TransactionalOperation(Product product1, Product product2)
         {
             _productDal.Add(product1);
