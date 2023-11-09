@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using DevFramework.Core.Aspects.PostSharp.CacheAspects;
 using DevFramework.Core.Aspects.PostSharp.ExceptionAspects;
 using DevFramework.Core.Aspects.PostSharp.LogAspects;
+using DevFramework.Core.Aspects.PostSharp.PerformanceAspects;
 using DevFramework.Insurance.Business.Abstract;
 using DevFramework.Insurance.Business.ValidationRules.FluentValidation;
 using DevFramework.Insurance.DataAccess.Abstract;
@@ -25,8 +27,10 @@ namespace DevFramework.Insurance.Business.Concrete.Managers
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
+        [PerformanceCounterAspect(2)]
         public List<Product> GetAll()
         {
+            Thread.Sleep(3000);
             return _productDal.GetList();
         }
 
