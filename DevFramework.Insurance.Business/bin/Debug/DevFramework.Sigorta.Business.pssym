@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Symbols LinesOfCode="43" PostSharpLinesOfCode="0" xmlns="http://schemas.postsharp.org/2.0/symbols">
+  <Class Class="#1=T:[DevFramework.Core]DevFramework.Core.Aspects.PostSharp.CacheAspects.CacheAspect">
+    <Instance Declaration="#2=M:[DevFramework.Sigorta.Business]DevFramework.Sigorta.Business.Concrete.Managers.ProductManager::GetAll()" Id="b26ec4b839b96f5d">
+      <Target>
+        <JoinPoint Advising="#1" Description="#3=Intercepted by OnInvoke" Ordinal="0" />
+      </Target>
+    </Instance>
+  </Class>
+  <Class Class="#4=T:[DevFramework.Core]DevFramework.Core.Aspects.PostSharp.ValidationAspects.FluentValidationAspect">
+    <Instance Declaration="#5=M:[DevFramework.Sigorta.Business]DevFramework.Sigorta.Business.Concrete.Managers.ProductManager::Add(DevFramework.Sigorta.Entities.Concrete.Product)" Id="b26ec4b812640d9c">
+      <Target>
+        <JoinPoint Advising="#4" Description="#6=Wrapped by advice(s) OnEntry, OnSuccess, OnException, OnExit" Ordinal="2" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#7=M:[DevFramework.Sigorta.Business]DevFramework.Sigorta.Business.Concrete.Managers.ProductManager::Update(DevFramework.Sigorta.Entities.Concrete.Product)" Id="b26ec4b832dd9fdf">
+      <Target>
+        <JoinPoint Advising="#4" Description="#6" Ordinal="3" />
+      </Target>
+    </Instance>
+  </Class>
+  <Class Class="#8=T:[DevFramework.Core]DevFramework.Core.Aspects.PostSharp.CacheAspects.CacheRemoveAspect">
+    <Instance Declaration="#5" Id="b26ec4b814b34167">
+      <Target>
+        <JoinPoint Advising="#8" Description="#6" />
+      </Target>
+    </Instance>
+  </Class>
+  <Class Class="#9=T:[DevFramework.Core]DevFramework.Core.Aspects.PostSharp.TransactionAspects.TransactionScopeAspect">
+    <Instance Declaration="#10=M:[DevFramework.Sigorta.Business]DevFramework.Sigorta.Business.Concrete.Managers.ProductManager::TransactionalOperation(DevFramework.Sigorta.Entities.Concrete.Product, DevFramework.Sigorta.Entities.Concrete.Product)" Id="b26ec4b8c05b56e4">
+      <Target>
+        <JoinPoint Advising="#9" Description="#6" Ordinal="4" />
+      </Target>
+    </Instance>
+  </Class>
+  <Annotation Target="#11=M:[DevFramework.Core]DevFramework.Core.Aspects.PostSharp.ValidationAspects.FluentValidationAspect::OnEntry(PostSharp.Aspects.MethodExecutionArgs)" Arguments="#12=2" Description="#13=PostSharp estimates that 2 line(s) of code are saved every time this advice is applied. Use the [LinesOfCodeAvoided] attribute on the aspect or specify the LinesOfCodeAvoided property on the advice attribute to override this value." />
+  <Annotation Target="#14=M:[PostSharp]PostSharp.Aspects.OnMethodBoundaryAspect::OnSuccess([PostSharp]PostSharp.Aspects.MethodExecutionArgs)" Arguments="#12" Description="#13" />
+  <Annotation Target="#15=M:[PostSharp]PostSharp.Aspects.OnMethodBoundaryAspect::OnExit([PostSharp]PostSharp.Aspects.MethodExecutionArgs)" Arguments="#12" Description="#13" />
+  <Annotation Target="#16=M:[PostSharp]PostSharp.Aspects.OnMethodBoundaryAspect::OnException([PostSharp]PostSharp.Aspects.MethodExecutionArgs)" Arguments="#12" Description="#13" />
+  <Annotation Target="#17=M:[PostSharp]PostSharp.Aspects.OnMethodBoundaryAspect::OnEntry([PostSharp]PostSharp.Aspects.MethodExecutionArgs)" Arguments="#12" Description="#13" />
+  <Annotation Target="#18=M:[DevFramework.Core]DevFramework.Core.Aspects.PostSharp.CacheAspects.CacheRemoveAspect::OnSuccess(PostSharp.Aspects.MethodExecutionArgs)" Arguments="#12" Description="#13" />
+  <Annotation Target="#19=M:[DevFramework.Core]DevFramework.Core.Aspects.PostSharp.TransactionAspects.TransactionScopeAspect::OnEntry(PostSharp.Aspects.MethodExecutionArgs)" Arguments="#12" Description="#13" />
+  <Annotation Target="#20=M:[DevFramework.Core]DevFramework.Core.Aspects.PostSharp.TransactionAspects.TransactionScopeAspect::OnSuccess(PostSharp.Aspects.MethodExecutionArgs)" Arguments="#12" Description="#13" />
+  <Annotation Target="#21=M:[DevFramework.Core]DevFramework.Core.Aspects.PostSharp.TransactionAspects.TransactionScopeAspect::OnExit(PostSharp.Aspects.MethodExecutionArgs)" Arguments="#12" Description="#13" />
+</Symbols>
