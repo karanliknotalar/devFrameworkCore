@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace DevFramework.Core.CrossCuttingConcerns.Validation.FluentValidation
 {
-    public class FluentValidatorTool
+    public abstract class FluentValidatorTool
     {
         public static void FluentValidate(IValidator validator, object entity)
         {

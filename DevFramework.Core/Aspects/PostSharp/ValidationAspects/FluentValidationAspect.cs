@@ -15,8 +15,7 @@ namespace DevFramework.Core.Aspects.PostSharp.ValidationAspects
         {
             _validatorType = validatorType;
         }
-
-
+        
         public override void OnEntry(MethodExecutionArgs args)
         {
             var validator = (IValidator)Activator.CreateInstance(_validatorType);

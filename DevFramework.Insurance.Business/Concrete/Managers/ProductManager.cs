@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
+using DevFramework.Core.Aspects.PostSharp.AuthorizationAspects;
 using DevFramework.Core.Aspects.PostSharp.CacheAspects;
 using DevFramework.Core.Aspects.PostSharp.ExceptionAspects;
-using DevFramework.Core.Aspects.PostSharp.LogAspects;
 using DevFramework.Core.Aspects.PostSharp.PerformanceAspects;
 using DevFramework.Insurance.Business.Abstract;
 using DevFramework.Insurance.Business.ValidationRules.FluentValidation;
@@ -28,6 +28,7 @@ namespace DevFramework.Insurance.Business.Concrete.Managers
 
         [CacheAspect(typeof(MemoryCacheManager))]
         [PerformanceCounterAspect(2)]
+        [SecuredOperation(Roles="Admin,Editor")]
         public List<Product> GetAll()
         {
             Thread.Sleep(3000);
@@ -54,6 +55,7 @@ namespace DevFramework.Insurance.Business.Concrete.Managers
 
         [TransactionScopeAspect]
         [FluentValidationAspect(typeof(ProductValidator))]
+        [ExceptionLogAspect(typeof(DatabaseLogger))]
         public void TransactionalOperation(Product product1, Product product2)
         {
             _productDal.Add(product1);

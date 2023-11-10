@@ -51,7 +51,7 @@ namespace DevFramework.Insurance.MvcWebUI.Controllers
                     ProductId = 2,
                     CategoryId = 1,
                     ProductName = "DemoProductName",
-                    UnitPrice = 5,
+                    UnitPrice = 25,
                     QuantityPerUnit = "1",
                     UnitsInStock = 5
                 });
