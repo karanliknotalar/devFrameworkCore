@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using AutoMapper;
 using DevFramework.Core.DataAccess;
 using DevFramework.Insurance.Business.Abstract;
 using DevFramework.Insurance.Business.Concrete.Managers;

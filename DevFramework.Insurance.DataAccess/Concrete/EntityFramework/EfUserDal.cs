@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using DevFramework.Core.DataAccess.EntityFramework;
 using DevFramework.Insurance.DataAccess.Abstract;
 using DevFramework.Insurance.Entities.ComplexType;
 using DevFramework.Insurance.Entities.Concrete;
-using FluentNHibernate.Testing.Values;
 
 namespace DevFramework.Insurance.DataAccess.Concrete.EntityFramework
 {
