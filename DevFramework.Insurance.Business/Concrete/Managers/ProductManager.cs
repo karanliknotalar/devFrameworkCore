@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
+using DevFramework.Core.Aspects.PostSharp.AuthorizationAspects;
 using DevFramework.Core.Aspects.PostSharp.CacheAspects;
 using DevFramework.Core.Aspects.PostSharp.ExceptionAspects;
 using DevFramework.Core.Aspects.PostSharp.PerformanceAspects;
@@ -11,8 +12,6 @@ using DevFramework.Core.Aspects.PostSharp.TransactionAspects;
 using DevFramework.Core.Aspects.PostSharp.ValidationAspects;
 using DevFramework.Core.CrossCuttingConcerns.Caching.Microsoft;
 using DevFramework.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
-using DevFramework.Core.Utilities.Mapping;
-
 
 namespace DevFramework.Insurance.Business.Concrete.Managers
 {
@@ -29,12 +28,12 @@ namespace DevFramework.Insurance.Business.Concrete.Managers
 
         [CacheAspect(typeof(MemoryCacheManager))]
         [PerformanceCounterAspect(2)]
-        // [SecuredOperation(Roles="Admin,Editor")]
+        [SecuredOperation(Roles = "Admin,Editor")]
         public List<Product> GetAll()
         {
             return _mapper.Map<List<Product>>(_productDal.GetList());
         }
-        
+
 
         public Product GetById(int id)
         {

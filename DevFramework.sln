@@ -41,6 +41,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DevFramework.Insurance.WcfS
 		VWDPort = "63096"
 		SlnRelativePath = "DevFramework.Insurance.WcfService\"
 		DefaultWebSiteLanguage = "Visual C#"
+		ProjectReferences = "{0E33A3BD-D10D-4502-B59E-DB6C2DA06CF9}|DevFramework.Insurance.Business.dll;{A2ECB8A5-BFB1-49E7-9374-D5B09B28AA03}|DevFramework.Insurance.Entities.dll"
 	EndProjectSection
 EndProject
 Global
